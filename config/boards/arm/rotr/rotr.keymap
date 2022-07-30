@@ -20,6 +20,9 @@
 			= <&macro_press &kp LEFT_WIN>
 			, <&macro_press &kp LEFT_ALT>
 			, <&macro_press &kp G>
+			, <&macro_release &kp LEFT_WIN>
+			, <&macro_release &kp LEFT_ALT>
+			, <&macro_release &kp G>
 			;
 		};
 	};
@@ -30,23 +33,23 @@
 		compatible = "zmk,keymap";
 
 		default_layer {
-			// Red: MUTE | F13 | PLAY/PAUSE
+			// Red: MUTE | WIN+ALT+G | PLAY/PAUSE
 			bindings = <&kp C_MUTE &lt 4 &capture_prev_30s &kp C_PP>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		one {
+			// Yellow: PREV | PLAY/PAUSE | NEXT
+			bindings = <&kp C_PREV &lt 4 C_PP &kp C_NEXT>;
+		};
+		two {
 			// Green: MUTE | PLAY/PAUSE | NEXT
 			bindings = <&kp C_MUTE &lt 4 C_PP &kp C_NEXT>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
-		two {
+		three {
 			// Blue: LEFT ARROW | SPACE BAR | RIGHT ARROW
 			bindings = <&kp LEFT &lt 4 SPACE &kp RIGHT>; 
    	  		sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
-		};
-		three {
-			// Yellow: PREV | PLAY/PAUSE | NEXT
-			bindings = <&kp C_PREV &lt 4 C_PP &kp C_NEXT>;
 		};
 		shift {
 			// Layers: Hold MIDDLE & SPIN to cycle layers
