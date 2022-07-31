@@ -4,7 +4,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 &inc_dec_kp {
-	triggers-per-rotation = <24>;
+	triggers-per-rotation = <36>;
 };
 &def_lshft {
 	triggers-per-rotation = <6>;
@@ -12,12 +12,17 @@
 
 / {
 	macros {
-		capture_prev_30s: capture_prev_30s {
-			label = "Game_bar_capture_prev_30s";
+		// WIN+ALT+G
+		game_cap: game_cap {
+			label = "Xbox_game_bar_capture_previous_30s";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
 			wait-ms = <500>;
-			bindings = <&macro_tap &kp LEFT_WIN &kp LEFT_ALT &kp G>;
+			bindings 
+				= <&bl BL_SET 0>
+				, <&macro_tap &kp LEFT_WIN &kp LEFT_ALT &kp G>
+				, <&bl BL_SET 100
+				;
 		};
 	};
 };
@@ -27,8 +32,8 @@
 		compatible = "zmk,keymap";
 
 		default_layer {
-			// Red: MUTE | WIN+ALT+G | PLAY/PAUSE
-			bindings = <&kp C_MUTE &lt 4 &capture_prev_30s &kp C_PP>;
+			// Red: MUTE | GAMEPLAY CAPTURE | PLAY/PAUSE
+			bindings = <&kp C_MUTE &lt 4 &game_cap &kp C_PP>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		one {
@@ -50,13 +55,13 @@
             		b = <0>;
 		};
 		three {
-			// Blue: LEFT ARROW | SPACE BAR | RIGHT ARROW
+			// Purple: LEFT ARROW | SPACE BAR | RIGHT ARROW
 			bindings = <&kp LEFT &lt 4 SPACE &kp RIGHT>; 
    	  		sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
 			ledoverride;  // Default Yellow
-            		r = <0>;
+            		r = <128>;
             		g = <0>;
-            		b = <255>;
+            		b = <128>;
 		};
 		shift {
 			// Layers: Hold MIDDLE & SPIN to cycle layers
