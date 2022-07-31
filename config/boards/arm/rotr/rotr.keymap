@@ -19,8 +19,9 @@
 			#binding-cells = <0>;
 			wait-ms = <500>;
 			bindings 
-				= <&macro_tap &kp LEFT_WIN &kp LEFT_ALT &kp G>
-				,
+				= <&macro_press &bl BL_SET 0 &kp LEFT_WIN &kp LEFT_ALT>
+				, <&macro_tap &kp G>
+				, <&macro_release &kp LEFT_WIN &kp LEFT_ALT &bl BL_SET 100>
 				;
 		};
 	};
