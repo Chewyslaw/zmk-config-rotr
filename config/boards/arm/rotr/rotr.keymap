@@ -31,13 +31,13 @@
 		compatible = "zmk,keymap";
 
 		default_layer {
-			// Red: MUTE | GAMEPLAY CAPTURE | PLAY/PAUSE
-			bindings = <&kp C_MUTE &lt 4 &game_cap &kp C_PP>;
+			// Red: PLAY/PAUSE | MUTE | GAMEPLAY CAPTURE
+			bindings = <&kp C_PP &lt 4 C_MUTE &kp &game_cap>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		one {
-			// Yellow: PREV | PLAY/PAUSE | NEXT
-			bindings = <&kp C_PREV &lt 4 C_PP &kp C_NEXT>;
+			// Yellow: PLAY/PAUSE | MUTE | NEXT
+			bindings = <&kp C_PP &lt 4 C_MUTE &kp C_NEXT>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		    	ledoverride; // Default Green
             		r = <255>;
@@ -45,8 +45,8 @@
             		b = <0>;
 		};
 		two {
-			// Green: MUTE | PLAY/PAUSE | NEXT
-			bindings = <&kp C_MUTE &lt 4 C_PP &kp C_NEXT>;
+			// Green: PLAY/PAUSE | PREV | NEXT
+			bindings = <&kp C_PP &lt 4 C_PREV &kp C_NEXT>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 			ledoverride; // Default Blue
             		r = <0>;
