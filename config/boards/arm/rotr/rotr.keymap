@@ -11,32 +11,17 @@
 };
 
 / {
-	macros {
-		// WIN+ALT+G
-		game_cap: game_cap {
-			label = "Xbox_game_bar_capture_previous_30s";
-			compatible = "zmk,behavior-macro";
-			#binding-cells = <0>;
-			bindings 
-				= <&macro_press &kp LWIN &kp LALT &kp G>
-				, <&macro_release &kp G &kp LALT &kp LWIN>
-				;
-		};
-	};
-};
-
-/ {
 	keymap {
 		compatible = "zmk,keymap";
 
 		default_layer {
-			// Red: PLAY/PAUSE | MUTE | GAMEPLAY CAPTURE
-			bindings = <&kp C_PP &lt 4 C_MUTE &kp &game_cap>;
+			// Red: PLAY/PAUSE | PREV | NEXT
+			bindings = <&kp C_PP &lt 4 C_PREV &kp C_NEXT>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		one {
-			// Yellow: PLAY/PAUSE | MUTE | NEXT
-			bindings = <&kp C_PP &lt 4 C_MUTE &kp C_NEXT>;
+			// Yellow: PLAY/PAUSE | PREV | NEXT
+			bindings = <&kp C_PP &lt 4 C_PREV &kp C_NEXT>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		    	ledoverride; // Default Green
             		r = <255>;
