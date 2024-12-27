@@ -15,9 +15,13 @@
 		compatible = "zmk,keymap";
 
 		default_layer {
-			// Red: PLAY/PAUSE | PREV | NEXT
+			// Green: PLAY/PAUSE | PREV | NEXT
 			bindings = <&kp C_PP &lt 4 C_PREV &kp C_NEXT>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			ledoverride; // Default Red
+			r = <0>;
+			g = <255>;
+			b = <0>;
 		};
 		one {
 			// Yellow: PLAY/PAUSE | PREV | NEXT
@@ -29,12 +33,12 @@
             		b = <0>;
 		};
 		two {
-			// Green: PLAY/PAUSE | PREV | NEXT
+			// Red: PLAY/PAUSE | PREV | NEXT
 			bindings = <&kp C_PP &lt 4 C_PREV &kp C_NEXT>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 			ledoverride; // Default Blue
-            		r = <0>;
-            		g = <255>;
+            		r = <255>;
+            		g = <0>;
             		b = <0>;
 		};
 		three {
